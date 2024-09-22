@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <h3>Rock Paper Scissor</h3><br>
+  <input type="button" value="Rock" onclick="playGame('Rock')">
+  <input type="button" value="Paper" onclick="playGame('Paper')">
+  <input type="button" value="Scissor" onclick="playGame('Scissor')">
+  <script>
+   
+    let result;
+    
+    function ComputerMove(){
+      let computerMove = '';
+      let randomNumber = Math.random();
+      if(randomNumber >=0 && randomNumber <0.33){
+        computerMove = 'Rock';
+      }
+      else if(randomNumber >=0.33 && randomNumber <0.67){
+        computerMove = 'Paper';
+      }
+      else{
+        computerMove = 'Scissor';
+      }
+      return computerMove;
+    }
+    function getResult(userMove,ComputerMove){
+      if(userMove === ComputerMove){
+        result = 'Tie.'
+      }
+      else if(
+        (userMove==='Rock' && ComputerMove === 'Paper') ||(userMove==='Scissor' && ComputerMove === 'Paper') ||
+        (userMove==='Paper' && ComputerMove === 'Scissor')
+      ){
+        result='You Win.'
+      }
+      else{
+        result='You Lose.'
+      }
+      return result;
+    }
+    function playGame(userMove){
+      let com = ComputerMove();
+      console.log(com); 
+      let res = getResult(userMove,com);
+      alert(`You picked ${userMove}. Computer picked ${com}. ${res}`);
+    }
+  </script>
+</body>
+</html>
