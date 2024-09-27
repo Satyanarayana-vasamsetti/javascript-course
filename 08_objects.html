@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    const std_details = {
+      name : "Bunny",
+      age : 25,
+      pin_num : 4261
+    };
+    console.log(std_details);
+    console.log(std_details.name);
+    std_details.name = 'satya';
+    console.log(std_details);
+    std_details.fees = 10000;
+    console.log(std_details);
+
+    delete std_details.fees;
+    console.log(std_details);
+
+    const details = {
+      gender : 'male',
+      self_details :{
+        age:19,
+        year:2004
+      },
+      fun:function userName(){
+        console.log("Bunny");
+      }
+    };
+    console.log(details.gender);
+    console.log(details['gender'])//this is another types to access
+    console.log(details.self_details)
+    console.log(details);
+    details.fun();
+    const jsonString = JSON.stringify(details);//converts js objects to JSON fromat
+    console.log(parse(jsonString));
+  </script>
+</body>
+</html>
