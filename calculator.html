@@ -6,117 +6,128 @@
         </title>
     </head>
     <body>
-        <p>Calculator</p>
+        <h1>Calculator</h1>
+        <h3 class="res"></h3>
         <p>
             <button onclick="
                 calculation += 1;
-                alert(calculation);">
+                updateDisplay();
+                ">
                 1
             </button>
 
             <button onclick="
                 calculation += 2;
-                alert(calculation);">
+                updateDisplay();
+                ">
                 2
             </button>
 
             <button onclick="
                 calculation += 3;
-                alert(calculation);">
+                updateDisplay();
+                ">
                 3
             </button>
 
             <button onclick="
                 calculation += '+';
-                alert(calculation);">
+                updateDisplay();
+                ">
                 +
             </button>
         </p>
         <p>
             <button onclick="
                 calculation += 4;
-                alert(calculation);">
+                updateDisplay();
+                ">
                 4
             </button>
 
             <button onclick="
                 calculation += 5;
-                alert(calculation);">
+                updateDisplay();">
                 5
             </button>
 
             <button onclick="
                 calculation += 6;
-                alert(calculation);">
+                updateDisplay();">
                 6
             </button>
 
             <button onclick="
                 calculation += '-';
-                alert(calculation);">
+                updateDisplay();">
                 -
             </button>
         </p>
         <p>
             <button onclick="
                 calculation += 7;
-                alert(calculation);">
+                updateDisplay();">
                 7
             </button>
 
             <button onclick="
                 calculation += 8;
-                alert(calculation);">
+                updateDisplay();">
                 8
             </button>
 
             <button onclick="
                 calculation += 9;
-                alert(calculation);">
+                updateDisplay();">
                 9
             </button>
 
             <button onclick="
                 calculation += '*';
-                alert(calculation);">
+               updateDisplay();">
                 *
             </button>
         </p>
         <p>
             <button onclick="
                 calculation += 0;
-                alert(calculation);">
+                updateDisplay();">
                 0
             </button>
 
             <button onclick="
                 calculation += '.';
-                alert(calculation);">
+                updateDisplay();">
                 .
             </button>
 
             <button onclick="
-                calculation = eval(calculation);
-                alert(calculation);">
+                calculation = eval(calculation).toString();
+                updateDisplay();">
                 =
             </button>
 
             <button onclick="
                 calculation += '/';
-                alert(calculation);">
+                updateDisplay();">
                 /
             </button>
         </p>
         <p>
             <button onclick="
-                calculation = '' ;
-                alert('Cleared...')">
+                calculation = '';
+                updateDisplay();">
                 Clear
             </button>
         </p>
         <script>
-            let calculation = JSON.parse(localStorage.getItem('calculation'));
-            localStorage.setItem('calculation',JSON.stringify(calculation));
+            let calculation = localStorage.getItem('calculation') || ''; 
+            document.querySelector('.res').innerHTML = calculation;
+        
+            function updateDisplay() {
+                document.querySelector('.res').innerHTML = calculation;
+                localStorage.setItem('calculation', calculation); // Store the updated value in local storage
+            }
         </script>
     </body>
 </html>
