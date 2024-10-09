@@ -7,13 +7,13 @@
     </head>
     <body>
         <button onclick="
-            console.log(`Cart Quantity:${CartQuantity}`);">
+            document.querySelector('.js-res').innerHTML=`Cart Quantity ${CartQuantity}`">
             Show Quantity
         </button>
 
         <button onclick="
         CartQuantity = CartQuantity + 1;
-        console.log(`Cart Quantity:${CartQuantity}`);">
+">
             Add to Cart
         </button>
 
@@ -66,9 +66,12 @@
         ">
             Reset Button
         </button>
+        <p class="js-res"></p>
         <script>
-            let CartQuantity;
-            CartQuantity = 0;
+           
+            let CartQuantity = JSON.parse(localStorage.getItem('CartQuantity'));
+            localStorage.setItem('CartQuantity',JSON.stringify(CartQuantity));
+            document.querySelector('.js-res').innerHTML=CartQuantity;
         </script>
     </body>
 </html>
